@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoder & Decoder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Text Encoder & Decoder</h2>
+        <form method="POST">
+            <label for="text">Enter text:</label>
+            <input type="text" name="text" required><br>
+
+            <label for="action">Action:</label>
+            <select name="action">
+                <option value="encode">Encode</option>
+                <option value="decode">Decode</option>
+            </select><br>
+
+            <label for="encoding">Select Encoding Type:</label>
+            <select name="encoding">
+                <option value="utf8">UTF-8 Encoding</option>
+                <option value="url">URL Encoding</option>
+                <option value="hex">Hex Encoding</option>
+                <option value="rot13">ROT13 Encoding</option>
+                <option value="binary">Binary Encoding</option>
+                <option value="octal">Octal Encoding</option>
+                <option value="punycode">Punycode Encoding</option>
+                <option value="morse">Morse Code Encoding</option>
+                <option value="braille">Braille Encoding</option>
+                <option value="base64">Base64 Encoding</option> 
+            </select><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if result %}
+            <h3>Result: {{ result }}</h3>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
